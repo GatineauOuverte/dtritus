@@ -12,10 +12,10 @@ dtritus.controller('ItemCtrl', function TodoCtrl($scope, $location, $http) {
 	$scope.searchTerm = '';
 
 	$scope.sortOrders=[
-		{name:'Natural', predicate:['priority','-title']},
-		{name:'Pri', predicate:'priority'},
-		{name:'Title', predicate:'title'},
-		{name:'Title Desc', predicate:'-title'},
+		{name:'Categorie', predicate:['categorie','motCles']},
+		{name:'-Categorie', predicate:['-categorie','motCles']},
+		{name:'Mot-cles', predicate:['motCles','categorie']},
+		{name:'-Mot-cles', predicate:['-motCles','categorie']}
 	];
 	$scope.sortPredicate=$scope.sortOrders[0];
 
@@ -25,7 +25,7 @@ dtritus.controller('ItemCtrl', function TodoCtrl($scope, $location, $http) {
 	}, true);
 
     function loadAll(){
-    	$scope.items = [{'Mot-cles':'Alex'},{'Mot-cles':'Dan'},{'Mot-cles':'Steph'}];
+    	//$scope.items = [{'Mot-cles':'Alex'},{'Mot-cles':'Dan'},{'Mot-cles':'Steph'}];
 		$http({
 			method: 'GET',
 			url: '/data/dtritus.json'

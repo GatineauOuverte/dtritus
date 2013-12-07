@@ -36,9 +36,10 @@
       </header>
       <section id="main" ng-show="items.length" ng-cloak>
         <ul id="item-list">
-          <li ng-repeat="item in items | filter:searchTerm" ng-class="">
+          <li ng-repeat="item in items | filter:searchTerm | orderBy:sortPredicate.predicate" ng-class="">
             <div class="view">
-              <label>{{item['Mot-cles']}}</label>
+              <b><label>{{item.categorie}}</label></b> |
+              <label>{{item.motCles}}</label>
             </div>
           </li>
         </ul>
