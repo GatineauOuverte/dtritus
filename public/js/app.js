@@ -1,10 +1,8 @@
-/*global angular */
-/*jshint unused:false */
-'use strict';
+/*global angular, window: true*/
 
-/**
- * The main Todo app module
- *
- * @type {angular.Module}
- */
-var dtritus = angular.module('dtritus', []);
+
+(function (global) {
+    'use strict';
+    
+    global.dtritus = angular.module('dtritus', []);
+}(window));

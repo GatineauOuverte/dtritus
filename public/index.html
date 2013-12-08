@@ -30,7 +30,7 @@
           <!-- <span>efective: {{sortPredicate.predicate}}</span> -->
           <span class="sorting">
             Sort Order: 
-            <select ng-model="sortPredicate" ng-options="s.name for s in sortOrders"></select>
+            <select ng-model="sortPredicate" ng-options="s.name for s in sortOptions"></select>
           </span>
         </div>
       </header>
@@ -68,13 +68,8 @@
   -->
 
   <script src="js/app.js"></script>
-  <script src="js/itemCtrl.js"></script>
-  <!--
-  <script src="js/controllers/authCtrl.js"></script>
-  <script src="js/services/todoStorage.js"></script>
-  <script src="js/directives/todoFocus.js"></script>
-  <script src="js/directives/todoEscape.js"></script>
-  -->
+  <script src="js/services/itemSvc.js"></script>
+  <script src="js/controllers/itemCtrl.js"></script>
 
 </body>
 </html>
