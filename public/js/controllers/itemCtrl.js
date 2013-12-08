@@ -1,14 +1,12 @@
-/*global angular, dtritus*/
+/*global dtritus*/
 
 (function () {
     'use strict';
     
-    dtritus.controller('ItemCtrl', function ItemCtrl($scope, itemSvc) {
+    dtritus.controller('ItemSearchCtrl', function ItemSearchCtrl($scope, $location, itemSvc) {
         
         $scope.searchResults = [];
         $scope.mostPopularItems = [];
-        
-        $scope.selectedItem = null;
     
         $scope.searchTerm = '';
         
@@ -33,15 +31,11 @@
         $scope.sortPredicate = $scope.sortOptions[0];
         
         $scope.showDetailsFor = function (item) {
-            $scope.selectedItem = item;
-        };
-        
-        $scope.returnToSearchResults = function () {
-            $scope.selectedItem = null;
+            $location.path('/items/' + item.id);
         };
         
         //Get top 5 popular items
-        itemSvc.getMostPopular(5).then(function (items) {
+        itemSvc.mostPopulars(5).then(function (items) {
             $scope.mostPopularItems = items;
         });
         
