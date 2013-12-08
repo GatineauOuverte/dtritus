@@ -30,7 +30,7 @@
           <!-- <span>efective: {{sortPredicate.predicate}}</span> -->
           <span class="sorting">
             Sort Order: 
-            <select ng-model="sortPredicate" ng-options="s.name for s in sortOrders"></select>
+            <select ng-model="sortPredicate" ng-options="s.name for s in sortOptions"></select>
           </span>
         </div>
       </header>
@@ -38,8 +38,8 @@
         <ul id="item-list">
           <li ng-repeat="item in items | filter:searchTerm | orderBy:sortPredicate.predicate" ng-class="">
             <div class="view">
-              <b><label>{{item.categorie}}</label></b> |
-              <label>{{item.motCles}}</label>
+              <b><label>{{item.category}}</label></b> |
+              <label>{{item.descriptor}}</label>
             </div>
           </li>
         </ul>
@@ -53,7 +53,7 @@
     <footer id="info">
       <p>Bla</p>
       <p>Merci:
-        <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Ville de gatinuau</a>
+        <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Ville de Gatineau</a>
       </p>
     </footer>
 
@@ -68,13 +68,8 @@
   -->
 
   <script src="js/app.js"></script>
-  <script src="js/itemCtrl.js"></script>
-  <!--
-  <script src="js/controllers/authCtrl.js"></script>
-  <script src="js/services/todoStorage.js"></script>
-  <script src="js/directives/todoFocus.js"></script>
-  <script src="js/directives/todoEscape.js"></script>
-  -->
+  <script src="js/services/itemSvc.js"></script>
+  <script src="js/controllers/itemCtrl.js"></script>
 
 </body>
 </html>
