@@ -1,75 +1,45 @@
 <!doctype html>
-<html lang="en" ng-app="dtritus">
+
+<html lang="fr" ng-app="dtritus">
+
 <head>
-  <meta charset="utf-8">
-  <title>D-tritus</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-  <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-  -->
+    <meta charset="utf-8">
+    <title>D-tritus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--<link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />-->
 
-  <!-- Bootstrap styles 
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  -->
-  <!-- Generic page styles -->
-  <!--
-  <link rel="stylesheet" href="/css/app.css"/>
-  -->
-  <style>[ng-cloak] { display: none; }</style>
-
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
 
-    <section id="dtritusapp" ng-controller="ItemCtrl">
-      <header id="header">
-        <h1>BLABLA</h1>
-        <form id="search-form">
-          <input id="new-todo" placeholder="Que cherchez-vous?" ng-model="searchTerm" autofocus>
-        </form>
-        <div id="sorting">
-          <!-- <span>efective: {{sortPredicate.predicate}}</span> -->
-          <span class="sorting">
-            Sort Order: 
-            <select ng-model="sortPredicate" ng-options="s.name for s in sortOptions"></select>
-          </span>
-        </div>
-      </header>
-      <section id="main" ng-show="items.length" ng-cloak>
-        <ul id="item-list">
-          <li ng-repeat="item in items | filter:searchTerm | orderBy:sortPredicate.predicate" ng-class="">
-            <div class="view">
-              <b><label>{{item.category}}</label></b> |
-              <label>{{item.descriptor}}</label>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <footer id="footer" ng-show="todos.length" ng-cloak>
-        <span id="item-count"><strong>{{itemCount}}</strong>
-          <ng-pluralize count="itemCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
-        </span>
-      </footer>
-    </section>
-    <footer id="info">
-      <p>Bla</p>
-      <p>Merci:
-        <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Ville de Gatineau</a>
-      </p>
+<body>
+    <header>
+        <h1>Dtritus</h1>
+    </header>
+    
+    <section ng-view></section>
+    
+    <footer>
+        <p>
+            Merci à: <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Ville de Gatineau</a>
+        </p>
     </footer>
 
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-  -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-  <!-- Locally served:
-  <script src="/components/angular/angular.js"></script>
-  -->
-
-  <script src="js/app.js"></script>
-  <script src="js/services/itemSvc.js"></script>
-  <script src="js/controllers/itemCtrl.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+    
+    <script src="js/app.js"></script>
+    
+    <script src="js/directives/routeTo.js"></script>
+    
+    <script src="js/services/itemSvc.js"></script>
+    <script src="js/services/sharedStateSvc.js"></script>
+    
+    <script src="js/controllers/itemCtrl.js"></script>
+    <script src="js/controllers/itemDetailsCtrl.js"></script>
+    
+    
 
 </body>
+
 </html>

@@ -1,47 +1,55 @@
-/*global angular, dtritus*/
+/*global dtritus*/
+/*jslint plusplus: true*/
 
 (function () {
     'use strict';
     
-    dtritus.controller('ItemCtrl', function ItemCtrl($scope, itemSvc) {
+    dtritus.controller('ItemSearchCtrl', function ItemSearchCtrl($scope, $location, itemSvc, sharedStateSvc) {
         
-        $scope.searchResults = [];
+        
+        $scope.searchResults = sharedStateSvc.searchResults || [];
         $scope.mostPopularItems = [];
-        
-        $scope.selectedItem = null;
     
-        $scope.searchTerm = '';
+        $scope.searchTerm = sharedStateSvc.searchTerm || '';
         
         //Perform search when searchTerm changes
         $scope.$watch('searchTerm', function () {
-            var term = $scope.searchTerm;
+            var term = sharedStateSvc.searchTerm = $scope.searchTerm;
             
             if (term) {
                 itemSvc.search(term).then(function (items) {
-                    $scope.searchResults = items;
+                    sharedStateSvc.searchResults = $scope.searchResults = items;
                 });
             }
         });
     
-        $scope.sortOptions = [
+        var sortOptions = $scope.sortOptions = [
             { name: 'Catégorie', predicate: ['categoryWd', 'descriptorWd'] },
             { name: '-Catégorie', predicate: ['-categoryWd', 'descriptorWd'] },
             { name: 'Item', predicate: ['descriptorWd', 'categoryWd'] },
             { name: '-Item', predicate: ['-descriptorWd', 'categoryWd'] }
         ];
         
-        $scope.sortPredicate = $scope.sortOptions[0];
+        $scope.sortPredicate = $scope.sortOptions[sharedStateSvc.sortPredicateIndex || 0];
+        
+        $scope.$watch('sortPredicate', function () {
+            var i = sortOptions.length,
+                sortPredicate = $scope.sortPredicate;
+            
+            while (i--) {
+                if (sortOptions[i] === sortPredicate) {
+                    sharedStateSvc.sortPredicateIndex = i;
+                    break;
+                }
+            }
+        });
         
         $scope.showDetailsFor = function (item) {
-            $scope.selectedItem = item;
-        };
-        
-        $scope.returnToSearchResults = function () {
-            $scope.selectedItem = null;
+            $location.path('/items/' + item.id);
         };
         
         //Get top 5 popular items
-        itemSvc.getMostPopular(5).then(function (items) {
+        itemSvc.mostPopulars(5).then(function (items) {
             $scope.mostPopularItems = items;
         });
         

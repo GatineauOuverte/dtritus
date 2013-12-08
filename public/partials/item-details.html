@@ -1,0 +1,9 @@
+<a href="#/">&lt;- Back</a>
+            
+<h2>{{item.descriptor}}</h2>
+
+<img ng-attr-title="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
+
+<ul>
+    <li ng-repeat="dest in item.destinations">{{$index + 1}} {{dest}}</li>
+</ul>

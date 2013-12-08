@@ -1,4 +1,5 @@
 /*global dtritus*/
+/*jslint plusplus: true*/
 
 (function () {
     'use strict';
@@ -14,10 +15,16 @@
                 });
             },
             
-            getMostPopular: function (top) {
+            mostPopulars: function (top) {
                 //TODO: Implement most popular algorithm
                 return allItems.then(function (result) {
                     return result.data.slice(0, top);
+                });
+            },
+            
+            findById: function (id) {
+                return allItems.then(function (result) {
+                    return $filter('filter')(result.data, { id: id })[0] || null;
                 });
             }
         };

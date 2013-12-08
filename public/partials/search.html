@@ -1,0 +1,44 @@
+<header id="header">
+    <form>
+        <input placeholder="Que cherchez-vous?" ng-model="searchTerm" autofocus>
+    </form>
+    
+    <div ng-show="searchTerm">
+        <span>
+            Sort Order: 
+            <select ng-model="sortPredicate" ng-options="s.name for s in sortOptions"></select>
+        </span>
+    </div>
+</header>
+
+<ul ng-show="searchTerm">
+    <li 
+        ng-repeat="item in searchResults | orderBy:sortPredicate.predicate"
+        ng-click="showDetailsFor(item)">
+        <div>
+            <b><label>{{item.category}}</label></b> |
+            <label>{{item.descriptor}}</label>
+        </div>
+    </li>
+</ul>
+
+<footer ng-show="searchTerm">
+    <span>
+        <strong>{{searchResults.length}}</strong>
+        <ng-pluralize 
+            count="searchResults.length" 
+            when="{ one: 'item', other: 'items' }"></ng-pluralize>
+    </span>
+</footer>
+
+<ul ng-show="!searchTerm">
+    <h2>Most popular items</h2>
+    
+    <li ng-repeat="item in mostPopularItems" route-to="/items/{{item.id}}">
+        <div>
+            {{$index + 1}}
+            <b><label>{{item.category}}</label></b> |
+            <label>{{item.descriptor}}</label>
+        </div>
+    </li>
+</ul>
