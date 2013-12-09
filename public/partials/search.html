@@ -5,7 +5,7 @@
     
     <div ng-show="searchTerm">
         <span>
-            Sort Order: 
+            Ordre de tri: 
             <select ng-model="sortPredicate" ng-options="s.name for s in sortOptions"></select>
         </span>
     </div>
@@ -32,7 +32,7 @@
 </footer>
 
 <ul ng-show="!searchTerm">
-    <h2>Most popular items</h2>
+    <h3>Items plus populaires</h3>
     
     <li ng-repeat="item in mostPopularItems" route-to="/items/{{item.id}}">
         <div>
