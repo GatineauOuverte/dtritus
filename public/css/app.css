@@ -4,6 +4,7 @@ body {
     font-size: 14px;
     width: 550px;
     margin: 0 auto;
+    padding:5px;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     -ms-font-smoothing: antialiased;
