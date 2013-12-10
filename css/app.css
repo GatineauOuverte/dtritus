@@ -2,7 +2,6 @@ body, nav {
     min-width: 310px;
 }
 
-/* global layout */
 nav {
     height: 60px;
     position: fixed;
@@ -30,4 +29,9 @@ nav {
 .list-item-picture {
     height: 40px;
     width: 40px;
+}
+
+.metro .label {
+    font-size: 85%;
+    line-height: 85%;
 }
