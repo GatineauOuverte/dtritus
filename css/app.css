@@ -4,13 +4,13 @@ body, nav {
 
 /* global layout */
 nav {
-    height: 55px;
+    height: 60px;
     position: fixed;
     z-index: 999;
 }
 
 [ng-view] {
-    padding-top: 55px;
+    padding-top: 60px;
 }
 
 [ng-cloak] {
@@ -18,8 +18,8 @@ nav {
 }
 
 #logo {
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 32px;
 }
 
 #app-name {
