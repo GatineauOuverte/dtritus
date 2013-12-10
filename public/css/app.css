@@ -1,6 +1,21 @@
+
 body {
-	font-family: Tahoma, Verdana, Arial;
-	font-size: 14px;
+    font-family: Tahoma, Verdana, Arial;
+    font-size: 14px;
+    width: 550px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+/* more responsive...*/
+@media (max-width: 550px) {
+    body {
+        width:100%;
+    }
 }
 
 
