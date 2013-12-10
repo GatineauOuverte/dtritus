@@ -1,7 +1,11 @@
 <div ng-show="!showPopulars" class="listview-outlook">
     
     <!-- TODO: Implement grouping as seen on http://metroui.org.ua/lists.html -->
-    <a ng-repeat="item in model.searchResults | limitTo: 25" ng-attr-href="#/items/{{item.id}}" class="list">
+    <a 
+       ng-repeat="item in searchResults | limitTo: searchCount > 10? 3 : 10" 
+       ng-attr-href="#/items/{{item.id}}" 
+       class="list">
+        
         <div class="list-content">
             <span class="list-title">
                 {{item.descriptor}}
@@ -10,10 +14,24 @@
             <span class="list-subtitle">{{item.category}}</span>
         </div>
     </a>
+    
+    <div ng-if="searchCount > 10" class="listview-outlook">
+        <div 
+             ng-repeat="item in searchResults | limitTo: 25 | startIndex: 3" 
+             ng-attr-href="#/items/{{item.id}}" class="list-group collapsed">
+            
+            <a href="" class="group-title">Group name</a>
+            <div class="group-content">
+                <a href="#" class="list">
+                    <div class="list-content">{{item.descriptor}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
     
 <div ng-show="showPopulars" class="listview-outlook">
-    <a ng-repeat="item in model.mostPopularItems" ng-attr-href="#/items/{{item.id}}" class="list">
+    <a ng-repeat="item in mostPopularItems" ng-attr-href="#/items/{{item.id}}" class="list">
         <div class="list-content">
             <span class="list-title">
                 <i class="icon-star fg-red">{{$index + 1}}</i> 
@@ -27,9 +45,9 @@
 
 <footer ng-show="!showPopulars">
     <span>
-        <strong>{{model.searchResults.length}}</strong>
+        <strong>{{searchCount}}</strong>
         <ng-pluralize 
-            count="model.searchResults.length" 
+            count="searchCount" 
             when="{ one: 'item', other: 'items' }"></ng-pluralize>
     </span>
 </footer>
