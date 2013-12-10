@@ -8,8 +8,8 @@
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'partials/search.html',
-                    controller: 'ItemSearchCtrl'
+                    templateUrl: 'partials/item-list.html',
+                    controller: 'ItemListCtrl'
                 })
                 .when('/items/:itemId', {
                     templateUrl: 'partials/item-details.html',

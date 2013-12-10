@@ -6,26 +6,46 @@
     <meta charset="utf-8">
     <title>D-TRI-TUS Mobile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--<link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />-->
 
     <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap.css">
+    <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap-responsive.css">
+    
 </head>
 
-<body>
-    <header>
-        <img src="images/dtritus.png" valign="middle"> <a style="font-family:tahoma, verdana, arial;font-size:20px;font-weight:bold;">D-TRI-TUS Mobile</a>
-    </header>
-    <p></p>
+<body class="metro">
+    <nav class="navigation-bar light" ng-controller="NavBarCtrl">
+        <nav class="navigation-bar-content">
+            <div class="element">
+                <a href="#/">
+                    <img id="logo" src="images/dtritus.png" alt="Logo"/>
+                    <span id="app-name">D-TRI-TUS</span>
+                </a>
+            </div>
+     
+            <span class="element-divider"></span>
+            
+            <div class="element input-element">
+                <form>
+                    <div class="input-control text">
+                        <input type="text" placeholder="Rechercher..." ng-model="searchTerm">
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </nav>
+    
     <section ng-view></section>
-    <p></p>
+    
     <footer>
         <p>
-            Pour plus d'infos: <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Info D-TRI-TUS</a>
+            Pour plus d'infos: 
+            <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Info D-TRI-TUS</a>
         </p>
-        <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" valign="middle"></a>
+        <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" alt="Logo de Gatineau Ouverte"></a>
     </footer>
-
+    
+    
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
     
@@ -34,13 +54,12 @@
     <script src="js/directives/routeTo.js"></script>
     
     <script src="js/services/itemSvc.js"></script>
-    <script src="js/services/sharedStateSvc.js"></script>
+    <script src="js/services/itemListModel.js"></script>
     
-    <script src="js/controllers/itemCtrl.js"></script>
+    <script src="js/controllers/itemListCtrl.js"></script>
     <script src="js/controllers/itemDetailsCtrl.js"></script>
+    <script src="js/controllers/navBarCtrl.js"></script>
     
-    
-
 </body>
 
 </html>
