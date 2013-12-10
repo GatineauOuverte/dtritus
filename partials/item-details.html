@@ -1,9 +1,12 @@
-<a href="#/">&lt;- Précédent</a>
-            
-<h2>{{item.descriptor}}</h2>
+<div class="detail">
+    <!-- <a href="#/">&larr; Précédent</a> -->
+    <button class="backbutton" ng-click="goBack()" class="small">&larr; Précédent</button>
+                
+    <h2>{{item.descriptor}}</h2>
 
-<img ng-attr-title="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
+    <img ng-attr-title="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
 
-<ul>
-    <li ng-repeat="dest in item.destinations">{{$index + 1}} {{dest}}</li>
-</ul>
+    <ul>
+        <li ng-repeat="dest in item.destinations">{{$index + 1}} {{dest}}</li>
+    </ul>
+</div>
