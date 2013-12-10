@@ -1,25 +1,33 @@
-
-body {
-    font-family: Tahoma, Verdana, Arial;
-    font-size: 14px;
-    width: 550px;
-    margin: 0 auto;
-    padding:5px;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -ms-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+body, nav {
+    min-width: 310px;
 }
 
-/* more responsive...*/
-@media (max-width: 550px) {
-    body {
-        width:100%;
-    }
+/* global layout */
+nav {
+    height: 60px;
+    position: fixed;
+    z-index: 999;
 }
 
+[ng-view] {
+    padding-top: 60px;
+}
 
 [ng-cloak] {
     display: none;
+}
+
+#logo {
+    height: 30px;
+    width: 32px;
+}
+
+#app-name {
+    font-weight: bold;
+    color: green;
+}
+
+.list-item-picture {
+    height: 40px;
+    width: 40px;
 }
