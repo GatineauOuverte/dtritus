@@ -35,3 +35,16 @@ nav {
     font-size: 85%;
     line-height: 85%;
 }
+
+.backbutton {
+    margin-top: 4px;
+    background-color: #229774 !important;
+}
+
+.detail {
+    padding: 0px 8px;
+}
+
+footer {
+    padding: 0px 8px;    
+}
