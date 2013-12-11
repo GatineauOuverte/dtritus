@@ -1,5 +1,4 @@
 /*global dtritus*/
-/*jslint plusplus: true*/
 
 (function () {
     'use strict';
@@ -21,7 +20,6 @@
                 var queryRx = createSearchRx(query);
                 
                 return allItems.then(function (result) {
-                    
                     return $filter('filter')(result.data, function (item) {
                         return queryRx.test(item.categoryWd) || queryRx.test(item.descriptorWd);
                     });

@@ -10,4 +10,5 @@
             $rootScope.$emit('search', $scope.searchTerm);
         });
     });
+    
 }());

@@ -1,8 +1,7 @@
-<div ng-show="!showPopulars" class="listview-outlook">
+<div ng-if="!showPopulars" class="listview-outlook">
     
     <!-- TODO: Implement grouping as seen on http://metroui.org.ua/lists.html -->
-    <a 
-       ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 3 : 10" 
+    <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 3 : 10 track by item.id" 
        ng-attr-href="#/items/{{item.id}}" 
        class="list">
         
@@ -15,42 +14,21 @@
         </div>
     </a>
     
-    <div ng-if="searchCount > 10" class="listview-outlook">
-        <div ng-repeat="item in (filteredItems = (searchResults | limitTo: 25 | startIndex: 3 | orderBy: ['category', 'descriptor']))" 
-             ng-attr-href="#/items/{{item.id}}"
-             class="list-group">
+    <div class="listview-outlook">
+        <div ng-repeat="(cat, items) in searchResults | limitTo: 25 | orderBy: ['category', 'descriptor'] | groupByKey: 'category'"
+             class="list-group collapsed">
             
-            <div data-ng-repeat="(group, users) in group(friends, grouping)">
-                <h2>{{group}}</h2>        
-                <ul>
-                    <li data-ng-repeat="user in users">
-                        {{ user.name }}
-                    </li>
-                </ul>
-            </div>
+            <a href="" class="group-title">{{cat}}</a>
             
-            <a 
-               ng-if="isNewCategory"
-               href="" 
-               class="group-title">{{item.category}}</a>
-            
-            <div ng-if="isNewCategory" class="group-content">
-                <a href="#" class="list">
-                    <div class="list-content">{{item.descriptor}}</div>
-                </a>
-            </div>
-            
-            <div ng-if="isNewCategory" class="group-content">
-                <a href="#" class="list">
-                    <div class="list-content">{{item.descriptor}}</div>
-                </a>
+            <div class="group-content">
+                <div ng-repeat="item in items track by item.id" class="list-content">{{item.descriptor}}</div>
             </div>
         </div>
     </div>
 </div>
     
-<div ng-show="showPopulars" class="listview-outlook">
-    <a ng-repeat="item in mostPopularItems" ng-attr-href="#/items/{{item.id}}" class="list">
+<div ng-if="showPopulars" class="listview-outlook">
+    <a ng-repeat="item in mostPopularItems track by item.id" ng-attr-href="#/items/{{item.id}}" class="list">
         <div class="list-content">
             <span class="list-title">
                 <i class="icon-star fg-red">{{$index + 1}}</i> 
@@ -62,7 +40,7 @@
     </a>
 </div>
 
-<footer ng-show="!showPopulars">
+<footer ng-if="!showPopulars">
     <span>
         <strong>{{searchCount}}</strong>
         <ng-pluralize 

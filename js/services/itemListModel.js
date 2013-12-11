@@ -6,7 +6,8 @@
     dtritus.factory('itemListModel', function () {
         return {
             searchResults: [],
-            mostPopularItems: []
+            mostPopularItems: [],
+            showPopulars: true
         };
     });
     
