@@ -7,6 +7,7 @@
         return {
             searchResults: [],
             mostPopularItems: [],
+            groupedSearchResults: [],
             showPopulars: true
         };
     });

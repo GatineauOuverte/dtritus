@@ -10,8 +10,29 @@
         });
     }
     
-    dtritus.controller('ItemListCtrl', function ItemListCtrl($scope, $rootScope, itemSvc, itemListModel) {
-        var model = $scope.model = itemListModel;
+    function groupByKey(items, key) {
+        var indexMap = {};
+        
+        return items.reduce(function (groups, item) {
+            var groupValue = item[key],
+                groupEntry = groups[indexMap[groupValue]];
+            
+            if (!groupEntry) {
+                groupEntry = { items: [] };
+                groupEntry[key] = groupValue;
+                indexMap[groupValue] = groups.push(groupEntry) - 1;
+            }
+            
+            groupEntry.items.push(item);
+            
+            return groups;
+        }, []);
+    }
+    
+    dtritus.controller('ItemListCtrl', function ItemListCtrl($scope, $rootScope, $filter, itemSvc, itemListModel) {
+        var model = $scope.model = itemListModel,
+            limitTo = $filter('limitTo'),
+            orderBy = $filter('orderBy');
         
         //Make itemListModel properties accessible on the scope
         angular.forEach(itemListModel, function (value, key) {
@@ -29,7 +50,21 @@
             
             if (term) {
                 itemSvc.search(term).then(function (items) {
+                    
                     $scope.searchResults = items;
+                    
+                    //Provide a grouped collection
+                    if (items.length > 10) {
+                        
+                        $scope.groupedSearchResults = groupByKey(
+                            limitTo(orderBy(items.slice(3), ['category', 'descriptor']), 25),
+                            'category'
+                        );
+                        
+                    } else {
+                        $scope.groupedSearchResults = [];
+                    }
+                    
                 });
             }
         });
