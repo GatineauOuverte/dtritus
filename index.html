@@ -7,14 +7,12 @@
     <title>D-TRI-TUS Mobile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap.css">
-    <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap-responsive.css">
-    
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 
 <body class="metro">
-    <nav class="navigation-bar light" ng-controller="NavBarCtrl">
+    <nav id="top-nav-bar" class="navigation-bar light" ng-controller="NavBarCtrl">
         <nav class="navigation-bar-content">
             <div class="element">
                 <a href="#/">
@@ -37,18 +35,12 @@
     
     <section ng-view></section>
     
-    <footer>
-        <p> </p>
-        <p>
-            Pour plus d'infos: 
-            <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Info D-TRI-TUS</a>
-        </p>
+    <footer id="page-footer">
         <p>
             <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" alt="Gatineau Ouverte" width="90" height="100"></a>
             <a href="http://www.facebook.com/gatineauouverte"><img src="images/facebook.png" alt="Facebook"></a> 
             <a href="http://twitter.com/gatineauouverte"><img src="images/twitter.png" alt="Twitter"></a> 
         </p>
- 
     </footer>
     
     
