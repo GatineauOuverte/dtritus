@@ -42,9 +42,10 @@ body, #top-nav-bar {
 }
 
 .backbutton {
-    margin-top: 4px;
-    background-color: #229774 !important;
+    margin-top: 6px;
+    background-color: #10844D !important;
     color: white !important;
+    font-size: 8pt !important;
 }
 
 .detail {
