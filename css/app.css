@@ -31,3 +31,7 @@ nav {
     height: 40px;
     width: 40px;
 }
+
+.listview-outlook .list-group.collapsed > :not(:first-child) {
+    display: none !important;
+}

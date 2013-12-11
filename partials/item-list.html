@@ -2,7 +2,7 @@
     
     <!-- TODO: Implement grouping as seen on http://metroui.org.ua/lists.html -->
     <a 
-       ng-repeat="item in searchResults | limitTo: searchCount > 10? 3 : 10" 
+       ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 3 : 10" 
        ng-attr-href="#/items/{{item.id}}" 
        class="list">
         
@@ -16,12 +16,31 @@
     </a>
     
     <div ng-if="searchCount > 10" class="listview-outlook">
-        <div 
-             ng-repeat="item in searchResults | limitTo: 25 | startIndex: 3" 
-             ng-attr-href="#/items/{{item.id}}" class="list-group collapsed">
+        <div ng-repeat="item in (filteredItems = (searchResults | limitTo: 25 | startIndex: 3 | orderBy: ['category', 'descriptor']))" 
+             ng-attr-href="#/items/{{item.id}}"
+             class="list-group">
             
-            <a href="" class="group-title">Group name</a>
-            <div class="group-content">
+            <div data-ng-repeat="(group, users) in group(friends, grouping)">
+                <h2>{{group}}</h2>        
+                <ul>
+                    <li data-ng-repeat="user in users">
+                        {{ user.name }}
+                    </li>
+                </ul>
+            </div>
+            
+            <a 
+               ng-if="isNewCategory"
+               href="" 
+               class="group-title">{{item.category}}</a>
+            
+            <div ng-if="isNewCategory" class="group-content">
+                <a href="#" class="list">
+                    <div class="list-content">{{item.descriptor}}</div>
+                </a>
+            </div>
+            
+            <div ng-if="isNewCategory" class="group-content">
                 <a href="#" class="list">
                     <div class="list-content">{{item.descriptor}}</div>
                 </a>
