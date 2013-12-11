@@ -5,16 +5,14 @@
 <head>
     <meta charset="utf-8">
     <title>D-TRI-TUS Mobile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap.css">
-    <link rel="stylesheet" href="lib/Metro-UI-CSS-master/css/metro-bootstrap-responsive.css">
-    
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 
 <body class="metro">
-    <nav class="navigation-bar light" ng-controller="NavBarCtrl">
+    <nav id="top-nav-bar" class="navigation-bar light" ng-controller="NavBarCtrl">
         <nav class="navigation-bar-content">
             <div class="element">
                 <a href="#/">
@@ -37,18 +35,12 @@
     
     <section ng-view></section>
     
-    <footer>
-        <p> </p>
+    <footer id="page-footer">
         <p>
-            Pour plus d'infos: 
-            <a href="http://www.gatineau.ca/page.asp?p=environnement/matieres_residuelles/info_dtritus">Info D-TRI-TUS</a>
-        </p>
-        <p>
-            <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" alt="Gatineau Ouverte" width="110" height="130"></a>
+            <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" alt="Gatineau Ouverte" width="90" height="100"></a>
             <a href="http://www.facebook.com/gatineauouverte"><img src="images/facebook.png" alt="Facebook"></a> 
             <a href="http://twitter.com/gatineauouverte"><img src="images/twitter.png" alt="Twitter"></a> 
         </p>
- 
     </footer>
     
     
@@ -65,6 +57,20 @@
     <script src="js/controllers/itemListCtrl.js"></script>
     <script src="js/controllers/itemDetailsCtrl.js"></script>
     <script src="js/controllers/navBarCtrl.js"></script>
+
+    <!-- Google analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19565032-6']);
+      _gaq.push(['_setDomainName', 'gatineauouverte.org']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     
     <script src="js/filters/filters.js"></script>
     
