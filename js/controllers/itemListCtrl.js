@@ -50,6 +50,7 @@
         });
         
         $rootScope.$on('search', function (e, term) {
+            $scope.searchTerm = term;
             $scope.showPopulars = !term;
             
             if (term) {

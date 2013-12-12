@@ -8,7 +8,8 @@
             searchResults: [],
             mostPopularItems: [],
             groupedSearchResults: [],
-            showPopulars: true
+            showPopulars: true,
+            searchTerm: ''
         };
     });
     

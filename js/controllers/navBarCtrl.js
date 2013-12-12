@@ -13,6 +13,10 @@
             $rootScope.$emit('search', $scope.searchTerm);
         });
         
+        $scope.clearSearch = function () {
+            $scope.searchTerm = '';
+        };
+        
         $scope.showAbout = function () {
             //TODO: Why it doesn't work without the timeout?
             setTimeout(function () {

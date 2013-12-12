@@ -40,7 +40,11 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+    
+    <p id="no-search-results" ng-show="searchCount === 0">
+        Votre recherche de <strong>"{{searchTerm}}"</strong> ne correspond à aucun item.
+    </p>
 </div>
     
 <div ng-show="showPopulars" class="listview-outlook">

@@ -63,6 +63,10 @@ body, #top-nav-bar {
     font-weight: bold;
 }
 
+#no-search-results {
+    padding: 20px;
+}
+
 .list-subtitle {
     color: green !important;
 }
