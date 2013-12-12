@@ -27,8 +27,8 @@ body, #top-nav-bar {
 }
 
 #search-input {
-    padding-right: 5px;
-    width: 160px;
+    padding-right: 2px;
+    width: 135px;
 }
 
 #app-name {
@@ -64,7 +64,7 @@ body, #top-nav-bar {
     list-style-type: none;
 }
 
-#about h3, #about a:hover {
+#about h4, #about a:hover {
     font-weight: bold;
 }
 
