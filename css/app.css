@@ -1,5 +1,5 @@
 body, #top-nav-bar {
-    min-width: 310px;
+    min-width: 320px;
 }
 
 [ng-view] {
@@ -24,6 +24,10 @@ body, #top-nav-bar {
 #logo {
     height: 30px;
     width: 32px;
+}
+
+#search-input {
+    padding-right: 20px;
 }
 
 #app-name {
