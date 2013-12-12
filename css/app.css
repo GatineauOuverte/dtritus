@@ -27,7 +27,8 @@ body, #top-nav-bar {
 }
 
 #search-input {
-    padding-right: 20px;
+    padding-right: 5px;
+    width: 160px;
 }
 
 #app-name {
