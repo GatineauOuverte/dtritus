@@ -10,7 +10,7 @@
         });
     }
     
-    function groupByKey(items, key) {
+    function groupByKey(items, key, mutateGroupFn) {
         var indexMap = {};
         
         return items.reduce(function (groups, item) {
@@ -21,6 +21,10 @@
                 groupEntry = { items: [] };
                 groupEntry[key] = groupValue;
                 indexMap[groupValue] = groups.push(groupEntry) - 1;
+                
+                if (mutateGroupFn) {
+                    mutateGroupFn(groupEntry);
+                }
             }
             
             groupEntry.items.push(item);
@@ -58,7 +62,10 @@
                         
                         $scope.groupedSearchResults = groupByKey(
                             limitTo(orderBy(items.slice(3), ['category', 'descriptor']), 25),
-                            'category'
+                            'category',
+                            function (groupEntry) {
+                                groupEntry.collapsed = true;
+                            }
                         );
                         
                     } else {
@@ -73,6 +80,10 @@
         itemSvc.mostPopulars(5).then(function (items) {
             $scope.mostPopularItems = items;
         });
+        
+        $scope.toggleExpand = function (groupEntry) {
+            groupEntry.collapsed = !groupEntry.collapsed;
+        };
         
     });
 }());

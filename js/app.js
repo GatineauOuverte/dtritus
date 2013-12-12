@@ -4,7 +4,7 @@
 (function (global) {
     'use strict';
     
-    global.dtritus = angular.module('dtritus', ['ngRoute'])
+    global.dtritus = angular.module('dtritus', ['ngRoute', 'angularSlideables'])
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {
