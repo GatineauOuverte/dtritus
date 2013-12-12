@@ -14,7 +14,7 @@ body, #top-nav-bar {
 #top-nav-bar {
     height: 60px;
     position: fixed;
-    z-index: 999;
+    z-index: 10;
 }
 
 #top-nav-bar .input-control.text {
@@ -29,16 +29,38 @@ body, #top-nav-bar {
 #app-name {
     font-weight: bold;
     color: green;
+    display: inline;
+    position: relative;
+    top: -2px;
+}
+
+#app-name span {
+    font-size: 11px;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
 }
 
 #page-footer {
     position: fixed;
-    z-index: 999;
+    z-index: 10;
     bottom: 0px;
     padding: 0px 8px;
     background-color: #eeeeee;
     width: 100%;
     height: 40px;
+}
+
+#about * {
+    color: green;
+}
+
+#about ul {
+    list-style-type: none;
+}
+
+#about h3, #about a:hover {
+    font-weight: bold;
 }
 
 .list-subtitle {
@@ -104,4 +126,20 @@ body, #top-nav-bar {
     vertical-align: baseline;
     background-color: #999;
     border-radius: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    line-height: 200px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    background-color: #e1ebdf;
+    text-align: center;
+  
+    z-index: 11;
+    outline: 9999px solid rgba(0,0,0,0.5);
 }

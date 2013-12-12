@@ -26,7 +26,7 @@
     
 </head>
 
-<body class="metro">
+<body ng-controller="MainCtrl" class="metro" ng-click="hideAbout()">
 
     <!--<div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -37,14 +37,30 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>-->
     
+    <div id="about" class="overlay" ng-show="showAbout" ng-click="$event.stopPropagation()">
+        <h3>D-TRI-TUS Mobile est une création de:</h3>
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/plalx">Alexandre Potvin Latreille</a> 
+                <a href="https://github.com/plalx">@plalx</a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/daniel.lauzon.fb">Daniel Lauzon</a>
+                <a href="https://github.com/daneroo">@daneroo</a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/stephane.frechette">Stéphane Fréchette</a>
+                <a href="https://github.com/sfrechette">@sfrechette</a>
+            </li>
+        </ul>
+    </div>
+    
     <nav id="top-nav-bar" class="navigation-bar light" ng-controller="NavBarCtrl">
         <nav class="navigation-bar-content">
-            <div class="element">
-                <a href="#/">
-                    <img id="logo" src="images/dtritus.png" alt="Logo" />
-                    <span id="app-name">D-TRI-TUS</span>
-                </a>
-            </div>
+            <button class="element" ng-click="showAbout()">
+                <img id="logo" src="images/dtritus.png" alt="Logo" />
+                <div id="app-name">D-TRI-TUS <span>mobile</span></div>
+            </button>
      
             <span class="element-divider"></span>
             
@@ -87,6 +103,7 @@
     <script src="js/controllers/itemListCtrl.js"></script>
     <script src="js/controllers/itemDetailsCtrl.js"></script>
     <script src="js/controllers/navBarCtrl.js"></script>
+    <script src="js/controllers/mainCtrl.js"></script>
     
     <script src="js/filters/filters.js"></script>
     

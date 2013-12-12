@@ -11,6 +11,10 @@
             
             $rootScope.$emit('search', $scope.searchTerm);
         });
+        
+        $scope.showAbout = function () {
+            $rootScope.$emit('showAbout');
+        };
     });
     
 }());
