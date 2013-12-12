@@ -45,7 +45,7 @@
     <a ng-repeat="item in mostPopularItems track by item.id" ng-attr-href="#/items/{{item.id}}" class="list">
         <div class="list-content">
             <span class="list-title">
-                <i class="icon-star fg-red">{{$index + 1}}</i> 
+                <i class="icon-star fg-red">{{$index + 1}}</i>
                 {{item.descriptor}}
                 <img class="list-item-picture" src="images/{{item.pictureUrl}}" class="cycle polaroid">
             </span>

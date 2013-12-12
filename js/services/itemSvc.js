@@ -27,9 +27,17 @@
             },
             
             mostPopulars: function (top) {
-                //TODO: Implement most popular algorithm
+                //TODO: Implement real live data
                 return allItems.then(function (result) {
-                    return result.data.slice(0, top);
+                    var data = result.data;
+                    
+                    return [
+                        data[159], //Branches de cèdres
+                        data[368], //Four à micro-ondes
+                        data[587], //Téléviseur
+                        data[576], //Terre de jardin
+                        data[328] //Cassette audio ou vidéo
+                    ];
                 });
             },
             
