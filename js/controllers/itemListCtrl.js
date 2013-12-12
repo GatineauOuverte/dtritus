@@ -61,7 +61,7 @@
                     if (items.length > 10) {
                         
                         $scope.groupedSearchResults = groupByKey(
-                            limitTo(orderBy(items.slice(3), ['category', 'descriptor']), 25),
+                            limitTo(orderBy(items.slice(4), ['category', 'descriptor']), 25),
                             'category',
                             function (groupEntry) {
                                 groupEntry.collapsed = true;

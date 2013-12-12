@@ -1,7 +1,6 @@
 <div ng-if="!showPopulars" class="listview-outlook">
     
-    <!-- TODO: Implement grouping as seen on http://metroui.org.ua/lists.html -->
-    <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 3 : 10 track by item.id" 
+    <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 4 : 10 track by item.id" 
        ng-attr-href="#/items/{{item.id}}" 
        class="list">
         
@@ -21,7 +20,10 @@
              ng-click="toggleExpand(groupEntry)"
              slide-toggle="#search-group-{{$index}}">
             
-            <a href="" class="group-title">{{groupEntry.category || 'Non catégorisé'}}</a>
+            <a href="" class="group-title">
+                {{groupEntry.category || 'Non catégorisé'}}
+                <span class="badge group-count">{{groupEntry.items.length}}</span>
+            </a>
             
             <div class="slideable" id="search-group-{{$index}}" duration="0.5s">
                 <div ng-repeat="item in groupEntry.items track by item.id" class="group-content">
