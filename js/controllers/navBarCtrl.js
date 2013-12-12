@@ -1,4 +1,5 @@
 /*global dtritus*/
+/*jslint browser: true*/
 
 (function () {
     'use strict';
@@ -13,7 +14,12 @@
         });
         
         $scope.showAbout = function () {
-            $rootScope.$emit('showAbout');
+            //TODO: Why it doesn't work without the timeout?
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $rootScope.showAbout = true;
+                });
+            }, 0);
         };
     });
     
