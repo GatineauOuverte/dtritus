@@ -50,6 +50,19 @@ body, #top-nav-bar {
     width: 40px;
 }
 
+.metro .listview-outlook .list:hover {
+    background-color: #e1ebdf;
+    outline: none;
+}
+
+.metro .listview-outlook .list:hover .list-content {
+    border-left: 3px #A9C99F solid;
+}
+
+.metro .listview-outlook .list:active {
+    background-color: #A9C99F !important;
+}
+
 .group-title {
     position: relative;
 }

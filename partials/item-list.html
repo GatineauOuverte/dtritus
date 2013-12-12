@@ -1,17 +1,19 @@
-<div ng-if="!showPopulars" class="listview-outlook">
+<div ng-if="!showPopulars">
     
-    <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 4 : 10 track by item.id" 
-       ng-attr-href="#/items/{{item.id}}" 
-       class="list">
-        
-        <div class="list-content">
-            <span class="list-title">
-                {{item.descriptor}}
-                <img class="list-item-picture" src="images/{{item.pictureUrl}}" class="cycle polaroid">
-            </span>
-            <span class="list-subtitle">{{item.category}}</span>
-        </div>
-    </a>
+    <div class="listview-outlook">
+        <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 4 : 10 track by item.id" 
+           ng-attr-href="#/items/{{item.id}}"
+           class="list">
+            
+            <div class="list-content">
+                <span class="list-title">
+                    {{item.descriptor}}
+                    <img class="list-item-picture" src="images/{{item.pictureUrl}}" class="cycle polaroid">
+                </span>
+                <span class="list-subtitle">{{item.category}}</span>
+            </div>
+        </a>
+    </div>
     
     <div class="listview-outlook">
         <div ng-repeat="groupEntry in groupedSearchResults" 
