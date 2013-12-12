@@ -2,10 +2,12 @@
     <button class="backbutton" route-to="/" class="small">&larr; Précédent</button>
                 
     <h2>{{item.descriptor}}</h2>
+    
+    <blockquote ng-if="item.remark"><p>{{item.remark}}</p></blockquote>
 
     <img ng-attr-title="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
 
-    <ul>
-        <li ng-repeat="dest in item.destinations">{{$index + 1}} {{dest}}</li>
-    </ul>
+    <ol>
+        <li ng-repeat="dest in item.destinations">{{dest}}</li>
+    </ol>
 </div>
