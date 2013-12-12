@@ -4,11 +4,20 @@
 (function () {
     'use strict';
     
+    var initialSearchTermWatch = true;
+    
     dtritus.controller('NavBarCtrl', function NavBarCtrl($scope, $rootScope, $location) {
         $scope.searchTerm = '';
         
         $scope.$watch('searchTerm', function () {
-            $location.path('/');
+            
+            //Prevent going back to the main page automatically when the application
+            //loads from another route than root "/".
+            if (!initialSearchTermWatch) {
+                $location.path('/');
+            } else {
+                initialSearchTermWatch = false;
+            }
             
             $rootScope.$emit('search', $scope.searchTerm);
         });
