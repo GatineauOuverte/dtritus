@@ -3,8 +3,8 @@ body, #top-nav-bar {
 }
 
 [ng-view] {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 [ng-cloak] {
@@ -12,9 +12,25 @@ body, #top-nav-bar {
 }
 
 #top-nav-bar {
-    height: 60px;
+    height: 35px;
     position: fixed;
     z-index: 10;
+    overflow: hidden;
+    color: green;
+}
+
+#top-nav-bar .element {
+    padding: 4px 10px 4px 10px;
+}
+
+#top-nav-bar .element:first-child {
+    padding-top: 1px;
+    padding-left: 5px;
+}
+
+#top-nav-bar .element:first-child:hover {
+    background-color: #e1ebdf;
+    color: green;
 }
 
 #top-nav-bar .input-control.text {
@@ -32,7 +48,6 @@ body, #top-nav-bar {
 
 #app-name {
     font-weight: bold;
-    color: green;
     display: inline;
     position: relative;
     top: -2px;
@@ -49,10 +64,15 @@ body, #top-nav-bar {
     position: fixed;
     z-index: 10;
     bottom: 0px;
-    padding: 0px 8px;
     background-color: #eeeeee;
     width: 100%;
-    height: 40px;
+    height: 35px;
+    white-space: nowrap;
+}
+
+#page-footer .twitter-share-button {
+    position: relative;
+    top: 6px;
 }
 
 #about * {
