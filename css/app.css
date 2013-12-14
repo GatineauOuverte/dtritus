@@ -1,10 +1,17 @@
-body, #top-nav-bar {
+body {
+    padding: 0;
+    margin: 0;
     min-width: 310px;
+    overflow: hidden !important;
 }
 
-[ng-view] {
-    padding-top: 35px;
-    padding-bottom: 35px;
+#page-content {
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
 }
 
 [ng-cloak] {
@@ -13,8 +20,6 @@ body, #top-nav-bar {
 
 #top-nav-bar {
     height: 35px;
-    position: fixed;
-    z-index: 10;
     overflow: hidden;
     color: green;
 }
@@ -61,11 +66,11 @@ body, #top-nav-bar {
 }
 
 #page-footer {
-    position: fixed;
-    z-index: 10;
-    bottom: 0px;
     background-color: #eeeeee;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     height: 35px;
     white-space: nowrap;
 }
@@ -73,6 +78,11 @@ body, #top-nav-bar {
 #page-footer .twitter-share-button {
     position: relative;
     top: 6px;
+}
+
+#go-logo {
+    height: 35px;
+    width: 90px;
 }
 
 #about * {
