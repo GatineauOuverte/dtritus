@@ -12,6 +12,7 @@ body {
     left: 0;
     right: 0;
     overflow-y: auto;
+    padding-bottom: 35px;
 }
 
 [ng-cloak] {
@@ -74,6 +75,21 @@ body {
     left: 0;
     height: 35px;
     white-space: nowrap;
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+}
+
+
+#page-footer.footer-in-time-hide {
+   height: 0 !important;
+}
+
+#page-footer.footer-in-time-bottom {
+   -webkit-transition: height 0s ease-in;
+    -moz-transition: height 0s ease-in;
+    -o-transition: height 0s ease-in;
+    height: 35px !important;
 }
 
 #page-footer .twitter-share-button {
@@ -183,7 +199,6 @@ body {
     margin-top: -100px;
     background-color: #e1ebdf;
     text-align: center;
-  
     z-index: 11;
     outline: 9999px solid rgba(0,0,0,0.5);
 }

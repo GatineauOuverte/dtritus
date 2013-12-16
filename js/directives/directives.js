@@ -1,4 +1,5 @@
-/*global dtritus*/
+/*global dtritus, angular*/
+/*jslint browser: true*/
 
 (function () {
     'use strict';
@@ -19,30 +20,46 @@
                     });
                 }
             };
-        });
-        //TODO: Implement fading header when scrolling
-        /*
-        .directive("scrollReact", function ($window) {
+        })
+        .directive('footerInTime', function () {
             return {
                 restrict: 'A',
-                
+                scope: {
+                    'options': '@footerInTime'
+                },
                 link: function (scope, element, attrs) {
+                    var options = scope.$eval(scope.options),
+                        scrollTargetEl = document.querySelector(options.scrollTarget),
+                        hideDuration = scope.hideDuration || 1200,
+                        hidden = false,
+                        lastScrollTop = scrollTargetEl.scrollTop,
+                        showTimerId;
                     
+                    angular.element(scrollTargetEl).on("scroll", function (e) {
+                        
+                        if ((this.offsetHeight + this.scrollTop) >= this.scrollHeight) {
+                            element.addClass('footer-in-time-bottom');
+                            clearTimeout(showTimerId);
+                            hidden = false;
+                            
+                        } else if (lastScrollTop < this.scrollTop) {
+                            if (!hidden) {
+                                element.removeClass('footer-in-time-bottom');
+                                element.addClass('footer-in-time-hide');
+                            }
+                            
+                            clearTimeout(showTimerId);
+                            
+                            showTimerId = setTimeout(function () {
+                                element.removeClass('footer-in-time-hide');
+                                hidden = false;
+                            }, hideDuration);
+                            
+                        }
+                        
+                        lastScrollTop = this.scrollTop;
+                    });
                 }
             };
-            return function(scope, element, attrs) {
-                
-                angular.element($window).bind("scroll", function() {
-                     if (this.pageYOffset >= 100) {
-                         scope.boolChangeClass = true;
-                         console.log('Scrolled below header.');
-                     } else {
-                         scope.boolChangeClass = false;
-                         console.log('Header is in view.');
-                     }
-                    scope.$apply();
-                });
-            };
         });
-        */
 }());
