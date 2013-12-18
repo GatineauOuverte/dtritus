@@ -2,7 +2,7 @@
     
     <div class="listview-outlook">
         <a ng-repeat="item in searchResults | orderBy: 'descriptor' | limitTo: searchCount > 10? 4 : 10 track by item.id" 
-           ng-attr-href="#/items/{{item.id}}"
+           ng-href="#/items/{{item.id}}"
            class="list">
             
             <div class="list-content">
@@ -29,7 +29,7 @@
             
             <div class="slideable" id="search-group-{{$index}}" duration="0.5s">
                 <div ng-repeat="item in groupEntry.items track by item.id" class="group-content">
-                    <a ng-attr-href="#/items/{{item.id}}" class="list">
+                    <a ng-href="#/items/{{item.id}}" class="list">
                         <div class="list-content">
                             <span class="list-title">
                                 {{item.descriptor}}
@@ -48,7 +48,7 @@
 </div>
     
 <div ng-show="showPopulars" class="listview-outlook">
-    <a ng-repeat="item in mostPopularItems track by item.id" ng-attr-href="#/items/{{item.id}}" class="list">
+    <a ng-repeat="item in mostPopularItems track by item.id" ng-href="#/items/{{item.id}}" class="list">
         <div class="list-content">
             <span class="list-title">
                 <i class="icon-star fg-red">{{$index + 1}}</i>

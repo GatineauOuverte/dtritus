@@ -5,7 +5,7 @@
     
     <blockquote ng-if="item.remark"><p>{{item.remark}}</p></blockquote>
 
-    <img ng-attr-title="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
+    <img ng-attr-alt="{{item.descriptor}}" ng-src="images/{{item.pictureUrl}}"/>
 
     <ol>
         <li ng-repeat="dest in item.destinations">{{dest}}</li>
