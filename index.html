@@ -67,10 +67,12 @@
         </nav>
     </nav>
     
-    <section ng-view></section>
+    <div id="page-content">
+        <section ng-view></section>
+    </div>
     
-    <footer id="page-footer">
-        <a href="http://gatineauouverte.org"><img src="images/gatineauouverte.png" alt="Gatineau Ouverte" width="90" height="100"></a>
+    <footer id="page-footer" footer-in-time="{ scrollTarget: '#page-content' }">
+        <a href="http://gatineauouverte.org"><img id="go-logo" src="images/gatineauouverte.png" alt="Gatineau Ouverte"></a>
                     
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dtritus.gatineauouverte.org" data-via="GatineauOuverte" data-lang="fr" data-text="D-TRI-TUS Mobile pour vous aider à mieux trier vos déchets, matières #donneesouvertes #opendata"></a>
                     
@@ -86,7 +88,7 @@
     
     <script src="js/app.js"></script>
     
-    <script src="js/directives/routeTo.js"></script>
+    <script src="js/directives/directives.js"></script>
     
     <script src="js/services/itemSvc.js"></script>
     <script src="js/services/itemListModel.js"></script>

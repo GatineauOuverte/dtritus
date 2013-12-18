@@ -1,9 +1,17 @@
-body, #top-nav-bar {
+body {
+    padding: 0;
+    margin: 0;
     min-width: 310px;
+    overflow: hidden !important;
 }
 
-[ng-view] {
-    padding-top: 35px;
+#page-content {
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
     padding-bottom: 35px;
 }
 
@@ -13,10 +21,9 @@ body, #top-nav-bar {
 
 #top-nav-bar {
     height: 35px;
-    position: fixed;
-    z-index: 10;
     overflow: hidden;
     color: green;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 #top-nav-bar .element {
@@ -61,18 +68,38 @@ body, #top-nav-bar {
 }
 
 #page-footer {
-    position: fixed;
-    z-index: 10;
-    bottom: 0px;
     background-color: #eeeeee;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     height: 35px;
     white-space: nowrap;
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+}
+
+
+#page-footer.footer-in-time-hide {
+   height: 0 !important;
+}
+
+#page-footer.footer-in-time-bottom {
+   -webkit-transition: height 0s ease-in;
+    -moz-transition: height 0s ease-in;
+    -o-transition: height 0s ease-in;
+    height: 35px !important;
 }
 
 #page-footer .twitter-share-button {
     position: relative;
     top: 6px;
+}
+
+#go-logo {
+    height: 35px;
+    width: 90px;
 }
 
 #about * {
@@ -172,7 +199,6 @@ body, #top-nav-bar {
     margin-top: -100px;
     background-color: #e1ebdf;
     text-align: center;
-  
     z-index: 11;
     outline: 9999px solid rgba(0,0,0,0.5);
 }
